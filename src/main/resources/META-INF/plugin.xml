@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>com.codeleven.php-swagger-yapi-integration-plugin</id>
+    <name>php-swagger-yapi-integration</name>
+    <idea-version since-build="145" until-build="201.*"/>
+    <vendor email="codeleven@vip.qq.com" url="https://www.yuque.com/codeleven">CoDeleven</vendor>
+    <description><![CDATA[
+    使用php-swagger生成json文件，然后调用接口送到yapi上
+    未来将增加根据数据库生成Model的功能
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.jetbrains.php</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable id="yApiServerConfiguration" instance="com.codeleven.config.YApiServerConfig"
+                             groupId="tools" displayName="YApiServer"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action icon="/icons/icon-gen-yapi-data.png"
+                id="ys-gen-yapi-data" class="com.codeleven.action.UploadToYApiFromSwagger"
+                text="更新API并上传至YApi" description="调用PHP-Swagger生成Json文件，然后调用接口上传至YApi">
+            <add-to-group group-id="NavBarToolBar" anchor="last"/>
+        </action>
+
+        <action id="GenerateSwaggerInfo" class="com.codeleven.action.GenerateSwaggerAction" text="生成Swagger注解"
+                description="根据数据库字段生成Swagger注解信息">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

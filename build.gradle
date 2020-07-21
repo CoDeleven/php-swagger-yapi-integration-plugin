@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.18'
+}
+
+group 'com.codeleven'
+version '1.1.5'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.2.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.0'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.0'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version 'IU-145.258.11'
+    pluginName 'php-swagger-yapi-integration-plugin'
+    plugins = [
+            "com.jetbrains.php:145.258.2",
+            'CSS',
+            'java-i18n',
+            'properties',
+    ]
+    alternativeIdePath 'G:\\PhpStorm 2019.1.3'
+    updateSinceUntilBuild false
+}
+
+patchPluginXml {
+    changeNotes """
+      <em>插件更新日志</em>
+      <ul>
+        <li>2020年7月21日 上传失败：因为YAPI服务器所能接受的HTTP报文大小限制，上传一直失败，而且没有消息提示，所以误以为插件BUG，现增加HTTP非200报错；增加简易的DEBUG功能</li>
+        <li>2020年5月13日 修复部分PhpStorm不会出现加载框的问题；调整了配置文件加载方式</li>
+        <li>2020年5月11日 修复缓冲区没刷新问题，导致扫描一直成功（文件修改后没有及时刷新缓冲区，swagger扫描到的是修改前的文件）；修复URL识别不到的错误</li>
+        <li>2020年5月09日 修复配置文件Application级别共享的BUG；新增Swagger注解解析错误报告</li>
+        <li>2020年4月20日 调整插件向下兼容的版本，目前兼容到PhpStorm2016.1的版本</li>
+        <li>2020年4月17日 完成第一个版本的发布</li>
+      </ul>
+      
+      """
+}
