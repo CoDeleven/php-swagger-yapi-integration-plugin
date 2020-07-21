@@ -25,7 +25,7 @@ composer global require zircote/swagger-php 2.0.*
 ### 配置PHP解释器
  使用`ctrl + alt + s` 唤出项目配置窗口，如下所示：
  
- ![设置面板](https://raw.githubusercontent.com/CoDeleven/php-swagger-yapi-integration-plugin/master/settings-php.png)
+ ![设置面板](https://raw.githubusercontent.com/CoDeleven/php-swagger-yapi-integration-plugin/master/pic/settings-php.png)
 
 ### 配置YAPIServer信息
  使用`ctrl + alt + s` 唤出项目配置窗口，如下所示：
