@@ -21,6 +21,7 @@
                              groupId="tools" displayName="YApiServer"/>
     </extensions>
 
+
     <actions>
         <!-- Add your actions here -->
         <action icon="/icons/icon-gen-yapi-data.png"

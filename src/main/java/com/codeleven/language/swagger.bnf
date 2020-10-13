@@ -1,0 +1,19 @@
+{
+    parserClass="com.codeleven.language.SwaggerParser"
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix="Swagger"
+    psiImplClassSuffix="Impl"
+    psiPackage="com.codeleven.language.psi"
+    psiImplPackage="com.codeleven.language.psi.impl"
+
+    elementTypeHolderClass="com.codeleven.language.psi.SwaggerTypes"
+    elementTypeClass="com.codeleven.language.psi.SwaggerTypes"
+    tokenTypeClass="com.codeleven.language.psi.SwaggerTokenType"
+}
+
+swaggerFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
